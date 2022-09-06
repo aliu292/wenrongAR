@@ -40,7 +40,7 @@
     <!-- The NFT image used for Tracking -->
     <a-nft
       type="nft"
-      url="./wenrongAR/nft-markers/eat-da-poo-poo"
+      url="./wenrongAR/nft-markers/chi-wild"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
@@ -55,6 +55,23 @@
       >
       </a-entity>
     </a-nft>
+    <a-nft
+    type="nft"
+    url="./wenrongAR/nft-markers/golden-spring"
+    smooth="true"
+    smoothCount="10"
+    smoothTolerance=".01"
+    smoothThreshold="5"
+  >
+    <a-sphere color="green" radius="20"></a-sphere>
+    <!-- Define the GLTF model -->
+    <a-entity
+      gltf-model="models/Crampons.glb"
+      scale="10 10 10"
+      position="50 150 0"
+    >
+    </a-entity>
+  </a-nft>
     <!-- Create the Static Camera -->
     <a-entity camera></a-entity>
   </a-scene>
