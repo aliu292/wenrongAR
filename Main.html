@@ -34,20 +34,31 @@
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
     <!-- we use cors proxy to avoid cross-origin problems -->
+
+    <!--
+      ⚠️⚠️⚠️
+      https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
+      You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
+      ⚠️⚠️⚠️
+    -->
+
     <a-nft
       type="nft"
-      url="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
+      url="NFT-Marker-Creator\output\eat-da-poo-poo"
       smooth="true"
       smoothCount="10"
       smoothTolerance=".01"
       smoothThreshold="5"
     >
-      <a-entity
+      <a-sphere color="yellow" radius="5"></a-sphere>
+      <!--
+        <a-entity
         gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
         scale="5 5 5"
         position="50 150 0"
       >
       </a-entity>
+    -->
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
