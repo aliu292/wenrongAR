@@ -1,8 +1,6 @@
-<!-- Import A-Frame and AR.js libraries -->
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
- 
-<!-- Loading Screen Styles -->
+
 <style>
   .arjs-loader {
     height: 100%;
@@ -16,28 +14,34 @@
     justify-content: center;
     align-items: center;
   }
- 
+
   .arjs-loader div {
     text-align: center;
     font-size: 1.25em;
     color: white;
   }
 </style>
- 
+
 <body style="margin : 0px; overflow: hidden;">
-  <!-- Minimal Loader Description until the assets are loaded -->
+  <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
- 
-  <!-- A-Frame Scene -->
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
   >
-    <!-- The NFT image used for Tracking -->
+    <!-- we use cors proxy to avoid cross-origin problems -->
+
+    <!--
+      ⚠️⚠️⚠️
+      https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
+      You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
+      ⚠️⚠️⚠️
+    -->
+
     <a-nft
       type="nft"
       url="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex"
@@ -46,15 +50,13 @@
       smoothTolerance=".01"
       smoothThreshold="5"
     >
-      <!-- Define the GLTF model -->
       <a-entity
-        gltf-model="models/Crampons.glb"
+        gltf-model="https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
         scale="5 5 5"
         position="50 150 0"
       >
       </a-entity>
     </a-nft>
-    <!-- Create the Static Camera -->
     <a-entity camera></a-entity>
   </a-scene>
 </body>
