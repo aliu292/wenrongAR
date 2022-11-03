@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     anchor.onTargetLost = () => {
       video.pause();
-    }
-    });
+    };
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
