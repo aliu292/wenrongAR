@@ -31,15 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(mistPlane);
-    anchor.group.add(bgPlane)
+    anchor.group.add(bgPlane);
     
 
     anchor.onTargetFound = () => {
       mistVid.play();
+      bgPlane.play();
       console.log('Found');
     }
     anchor.onTargetLost = () => {
       mistVid.pause();
+      bgPlane.pause();
       console.log('Lost');
     };
 
