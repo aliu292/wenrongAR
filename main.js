@@ -34,3 +34,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
+console.log('Debug?')
