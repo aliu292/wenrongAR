@@ -10,23 +10,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
 
-    const video = await loadVideo('./videoEdits/Mist Ink AInc.webm');
-    const texture = new THREE.VideoTexture(video);
-    texture.format = THREE.RGBAFormat
+    const mistVid = await loadVideo('./videoEdits/Mist Ink AInc.webm');
+    const mistTexture = new THREE.VideoTexture(mistVid);
+    mistTexture.format = THREE.RGBAFormat;
 
-    const geometry = new THREE.PlaneGeometry(1.5, 748/600*1.5);
-    const material = new THREE.MeshBasicMaterial({map: texture, transparent: true});
-    const plane = new THREE.Mesh(geometry, material);
+    const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
+    const bgTexture = new THREE.VideoTexture(bgVid);
+    bgTexture.format = THREE.RGBAFormat;
+
+    const geometry = new THREE.PlaneGeometry(1, 748/600);
+    const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
+    const mistPlane = new THREE.Mesh(geometry, mistMaterial);
+    mistPlane.scale.set(2,2,2);
+    mistPlane.position.set(0,0,0.3);
+    
+    const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
+    const bgPlane = new THREE.Mesh(geometry, bgMaterial);
+  
+    
 
     const anchor = mindarThree.addAnchor(0);
-    anchor.group.add(plane);
+    anchor.group.add(mistPlane);
+    anchor.group.add(bgPlane)
+    
 
     anchor.onTargetFound = () => {
-      video.play();
+      mistVid.play();
       console.log('Found');
     }
     anchor.onTargetLost = () => {
-      video.pause();
+      mistVid.pause();
       console.log('Lost');
     };
 
@@ -37,4 +50,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('UP');
+console.log('NEW');
