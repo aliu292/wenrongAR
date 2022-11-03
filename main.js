@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     anchor.onTargetFound = () => {
       mistVid.play();
-      bgPlane.play();
+      bgVid.play();
       console.log('Found');
     }
     anchor.onTargetLost = () => {
       mistVid.pause();
-      bgPlane.pause();
+      bgVid.pause();
       console.log('Lost');
     };
 
