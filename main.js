@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     anchor.onTargetLost = () => {
       video.pause();
     }
-    video.addEventListener( 'play', () => {
-      video.currentTime = 6;
     });
 
     await mindarThree.start();
