@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
     const cylGeo = new THREE.CylinderGeometry( 0.3 , 0.3 , 1 , 16 , 1 , true)
     const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
-    const mistPlane = new THREE.Mesh(cylGeo, mistMaterial);
-    mistPlane.scale.set(1,1,1);
+    const mistPlane = new THREE.Mesh(planeGeo, mistMaterial);
+    mistPlane.scale.set(1.5,1.6,1);
     mistPlane.position.set(0,0,0.3);
-    mistPlane.rotation.set(0,0,0)
+    mistPlane.rotation.set(1,0,0)
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
     const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
