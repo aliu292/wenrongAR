@@ -52,4 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('KEK');
+console.log('LOL');
