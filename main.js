@@ -23,9 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     anchor.onTargetFound = () => {
       video.play();
+      console.log('Found');
     }
     anchor.onTargetLost = () => {
       video.pause();
+      console.log('Lost');
     };
 
     await mindarThree.start();
@@ -35,4 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('Debuged')
+console.log('DebI')
