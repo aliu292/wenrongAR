@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const texture = new THREE.VideoTexture({video: video, format: RGBAFormat});
 
     const geometry = new THREE.PlaneGeometry(1.5, 748/600*1.5);
-    const material = new THREE.MeshBasicMaterial({map: texture});
+    const material = new THREE.MeshBasicMaterial({map: texture, transparent: true});
     const plane = new THREE.Mesh(geometry, material);
 
     const anchor = mindarThree.addAnchor(0);
