@@ -1,4 +1,5 @@
 import {loadGLTF, loadVideo} from "./libs/loader.js";
+import { RGBAFormat } from "./libs/three.js-r132/build/three.module.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
 
-    const video = await loadVideo('./videoEdits/chi-wild.mp4');
-    const texture = new THREE.VideoTexture(video);
+    const video = await loadVideo('./videoEdits/Mist Ink Alpha_1_1.webm');
+    const texture = new THREE.VideoTexture({video: video, format: RGBAFormat});
 
     const geometry = new THREE.PlaneGeometry(1, 748/600);
     const material = new THREE.MeshBasicMaterial({map: texture});
