@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const video = await loadVideo('./videoEdits/chi-wild.mp4');
     const texture = new THREE.VideoTexture(video);
 
-    const geometry = new THREE.PlaneGeometry(1, 204/480);
+    const geometry = new THREE.PlaneGeometry(1, 748/600);
     const material = new THREE.MeshBasicMaterial({map: texture});
     const plane = new THREE.Mesh(geometry, material);
 
