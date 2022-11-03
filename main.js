@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mistPlane = new THREE.Mesh(planeGeo, mistMaterial);
     mistPlane.scale.set(1.5,1.6,1);
     mistPlane.position.set(0,0,0.3);
-    mistPlane.rotation.set(1,0,0)
+    mistPlane.rotation.set(-0.6,0,0)
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
     const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
