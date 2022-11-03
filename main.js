@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const {renderer, scene, camera} = mindarThree;
 
     const video = await loadVideo('./videoEdits/Mist Ink Alpha_1_1.webm');
-    const texture = new THREE.VideoTexture(video);
-    texture.format = THREE.RGBAFormat;
+    const texture = new THREE.VideoTexture({video: video, format : RGBAFormat});
 
     const geometry = new THREE.PlaneGeometry(1.5, 748/600*1.5);
     const material = new THREE.MeshBasicMaterial({map: texture, transparent: true});
@@ -37,4 +36,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('DebI')
+console.log('UP');
