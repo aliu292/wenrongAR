@@ -18,14 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgTexture = new THREE.VideoTexture(bgVid);
     bgTexture.format = THREE.RGBAFormat;
 
-    const geometry = new THREE.PlaneGeometry(1, 748/600);
+    const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
+    const cylGeo = new THREE.CylinderGeometry( 1 , 2 , 4 , 16 , 1 , true)
     const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
-    const mistPlane = new THREE.Mesh(geometry, mistMaterial);
-    mistPlane.scale.set(2,2,2);
+    const mistPlane = new THREE.Mesh(cylGeo, mistMaterial);
+    mistPlane.scale.set(1,2,2);
     mistPlane.position.set(0,0,0.3);
+    mistPlane.rotation.set(45,0,0)
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
-    const bgPlane = new THREE.Mesh(geometry, bgMaterial);
+    const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
   
     
 
@@ -52,4 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('LOL');
+console.log('Lets get');
