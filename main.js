@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
     const mistGeo = await loadOBJ('./3D models/orgMesh.obj')
     const mistPlane = new THREE.Mesh(mistGeo, mistMaterial);
-    mistPlane.scale.set(0.5,0.5,0.5);
-    mistPlane.position.set(0,0,0.5);
-    mistPlane.rotation.set(-0.6,0,0)
+    // mistPlane.scale.set(0.5,0.5,0.5);
+    // mistPlane.position.set(0,0,0.5);
+    // mistPlane.rotation.set(-0.6,0,0)
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
     const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
@@ -55,4 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('uwu ');
+console.log('uwu ah ');
