@@ -54,4 +54,13 @@ export const loadTextures = (paths) => {
     }));
   }
   return Promise.all(promises);
-}
+};
+
+export const loadOBJ = (path) => {
+  return new Promise((resolve, reject) => {
+    const loader = new OBJLoader();
+    loader.load(path, (obj) => {
+      resolve(obj);
+    });
+  });
+};

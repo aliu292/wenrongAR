@@ -1,4 +1,4 @@
-import {loadGLTF, loadVideo} from "./libs/loader.js";
+import {loadGLTF, loadOBJ, loadVideo} from "./libs/loader.js";
 import { RGBAFormat } from "./libs/three.js-r132/build/three.module.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const {renderer, scene, camera} = mindarThree;
 
-    const mistVid = await loadVideo('./videoEdits/Mist Ink AInc.webm');
+    const mistVid = await loadVideo('./videoEdits/Mist Ink.webm');
     const mistTexture = new THREE.VideoTexture(mistVid);
     mistTexture.format = THREE.RGBAFormat;
 
@@ -20,10 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
     const cylGeo = new THREE.CylinderGeometry( 0.3 , 0.3 , 1 , 16 , 1 , true)
-    const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
-    const mistPlane = new THREE.Mesh(planeGeo, mistMaterial);
-    mistPlane.scale.set(1.5,1.6,1);
-    mistPlane.position.set(0,0,0.3);
+//    const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
+    const mistGeo = await loadOBJ('./3D models/orgMesh.obj')
+    const mistPlane = new THREE.Mesh(mistGeo, mistMaterial);
+    mistPlane.scale.set(0.5,0.5,0.5);
+    mistPlane.position.set(0,0,0.5);
     mistPlane.rotation.set(-0.6,0,0)
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
