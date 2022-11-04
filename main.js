@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
 //    const cylGeo = new THREE.CylinderGeometry( 0.3 , 0.3 , 1 , 16 , 1 , true)
     const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
-    const mistGeo = await loadOBJ('./3D models/orgMesh.obj')
+    const mistGeo = await loadOBJ('./3D models/orgMesh.obj');
     const mistPlane = new THREE.Mesh(mistGeo, mistMaterial);
     // mistPlane.scale.set(0.5,0.5,0.5);
     // mistPlane.position.set(0,0,0.5);
@@ -55,4 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   start();
 });
-console.log('uwu ah ');
+console.log('did it ');
