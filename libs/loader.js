@@ -57,6 +57,21 @@ export const loadTextures = (paths) => {
   return Promise.all(promises);
 };
 
+export const loadOBJandMAT = (path, mat) => {
+  return new Promise((resolve, reject) => {
+    const loader = new OBJLoader();
+    loader.load(path, (obj) => {
+      obj.traverse((child) =>{
+        if (child instanceof THREE.Mesh) {
+          child.material = mat;
+        }
+      });
+      resolve(obj);
+    });
+  });
+};
+
+
 export const loadOBJ = (path) => {
   return new Promise((resolve, reject) => {
     const loader = new OBJLoader();

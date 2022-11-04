@@ -1,4 +1,4 @@
-import {loadGLTF, loadOBJ, loadVideo} from "./libs/loader.js";
+import {loadGLTF, loadOBJandMAT, loadOBJ, loadVideo} from "./libs/loader.js";
 import { RGBAFormat } from "./libs/three.js-r132/build/three.module.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
@@ -19,13 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
     bgTexture.format = THREE.RGBAFormat;
 
     const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
-//    const cylGeo = new THREE.CylinderGeometry( 0.3 , 0.3 , 1 , 16 , 1 , true)
+//    const cylGeo = new THREE.CylinderGeometry( 0.3 , 0.3 , 1 , 16 , 1 , true);
     const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
+    // const mistGeo = await loadOBJandMAT('./3D models/orgMesh.obj', mistMaterial);
     const mistGeo = await loadOBJ('./3D models/orgMesh.obj');
-    const mistPlane = new THREE.Mesh(mistGeo, mistMaterial);
+    mistGeo.children[0].material = mistMaterial;
+    mistGeo.scale.set(0.02 ,0.02 , 0.02);
+    // const mistPlane = new THREE.Mesh(mistGeo, mistMaterial);
     // mistPlane.scale.set(0.5,0.5,0.5);
     // mistPlane.position.set(0,0,0.5);
-    // mistPlane.rotation.set(-0.6,0,0)
+    // mistPlane.rotation.set(-0.6,0,0);
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
     const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
@@ -33,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     const anchor = mindarThree.addAnchor(0);
-    anchor.group.add(mistPlane);
+    anchor.group.add(mistGeo)
+    // anchor.group.add(mistPlane);
     anchor.group.add(bgPlane);
     
 
