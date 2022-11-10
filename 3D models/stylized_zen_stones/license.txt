@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized zen stones
+* source:	https://sketchfab.com/3d-models/stylized-zen-stones-8ce2a445fdb34c5eb310c85a05fdc820
+* author:	meowskie (https://sketchfab.com/meowskie)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized zen stones" (https://sketchfab.com/3d-models/stylized-zen-stones-8ce2a445fdb34c5eb310c85a05fdc820) by meowskie (https://sketchfab.com/meowskie) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
