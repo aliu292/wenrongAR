@@ -1,6 +1,7 @@
 import {GLTFLoader} from "./three.js-r132/examples/jsm/loaders/GLTFLoader.js";
 import * as THREE from "./three.js-r132/build/three.module.js";
 import {OBJLoader} from "./three.js-r132/examples/jsm/loaders/OBJLoader.js";
+import {FBXLoader} from "./three.js-r132/examples/jsm/loaders/FBXLoader.js";
 
 //const THREE = window.MINDAR.IMAGE? window.MINDAR.IMAGE.THREE: window.MINDAR.FACE.THREE;
 
@@ -75,6 +76,15 @@ export const loadOBJandMAT = (path, mat) => {
 export const loadOBJ = (path) => {
   return new Promise((resolve, reject) => {
     const loader = new OBJLoader();
+    loader.load(path, (obj) => {
+      resolve(obj);
+    });
+  });
+};
+
+export const loadFBX = (path) => {
+  return new Promise((resolve, reject) => {
+    const loader = new FBXLoader();
     loader.load(path, (obj) => {
       resolve(obj);
     });

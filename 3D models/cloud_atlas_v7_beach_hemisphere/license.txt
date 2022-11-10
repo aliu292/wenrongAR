@@ -1,0 +1,8 @@
+Model Information:
+* title:	Cloud Atlas V7: Beach Hemisphere
+* source:	https://sketchfab.com/3d-models/cloud-atlas-v7-beach-hemisphere-b2a38fc23c384c2fa57dac8673b08597
+* author:	Sameer Hazari 🎨 (https://sketchfab.com/sameerhazari)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

@@ -1,4 +1,4 @@
-import {loadGLTF, loadOBJandMAT, loadOBJ, loadVideo} from "./libs/loader.js";
+import {loadGLTF, loadOBJandMAT, loadOBJ, loadVideo, loadFBX} from "./libs/loader.js";
 import { RGBAFormat } from "./libs/three.js-r132/build/three.module.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
       imageTargetSrc: './arTargets/targets.mind',
     });
     const {renderer, scene, camera} = mindarThree;
+
+    const sunlight = new THREE.HemisphereLight( 0xFF0241 , 0x02D1FF, 1);
+    scene.add(sunlight)
+
 
     const mistVid = await loadVideo('./videoEdits/Mist Ink.webm');
     const mistTexture = new THREE.VideoTexture(mistVid);
@@ -33,13 +37,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
     const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
   
-    
+    const clouds = await loadFBX('./3D models/fbxcloud-atlas-v7-beach-hemisphere/source/Clouds_1000_2x2Half_sphere_anim.fbx');
+
+    clouds.traverse((child) =>{
+      if ('material' in child) {
+         child.material.depthTest = true;
+         child.material.depthWrite = false;
+        //child.material.side = THREE.DoubleSide;
+    }
+    });
+    clouds.scale.set(0.002,0.002,0.002);
+    clouds.position.set(0,-1,2);
+    clouds.rotation.set(0,0,0);
+    console.log(clouds)
 
     const anchor = mindarThree.addAnchor(0);
     anchor.group.add(mistGeo)
     // anchor.group.add(mistPlane);
     anchor.group.add(bgPlane);
     
+    //animations
+    const mixer = new THREE.AnimationMixer(clouds, scene);
+    const action = mixer.clipAction(clouds.animations[0]);
+    action.play();
 
     anchor.onTargetFound = () => {
       mistVid.play();
@@ -52,8 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Lost');
     };
 
+    const anchor2 = mindarThree.addAnchor(1);
+    anchor2.group.add(clouds);
+    // anchor2.group.add(sunlight);
+    console.log(sunlight)
+
+
+    const clock = new THREE.Clock();
+
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
+      const delta = clock.getDelta();
+      mixer.update(delta*2);
       renderer.render(scene, camera);
     });
   }
