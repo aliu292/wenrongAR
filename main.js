@@ -72,36 +72,47 @@ document.addEventListener('DOMContentLoaded', () => {
       const coldForestAnchor = mindarThree.addAnchor(1);
       coldForestAnchor.group.add(clouds);
       coldForestAnchor.group.add(sunlight);
-    
+
 
     // Index 02 Empty Reverb 空谷回響
 
     // Index 03 Golden Spring 黃金泉
     const blackMaterial = new THREE.MeshBasicMaterial({color: 0x000000, opacity: 0 , transparent: true });
-    const waterfall = await loadGLTF('./3D models/looping-waterfall-objects-animation/source/waterfall.gltf');
-    waterfall.scene.scale.set(0.3 , 0.4 , 0.3
-      );
-    waterfall.scene.position.set(0, -3 , -0.2);
-    waterfall.scene.rotation.set(0, -1.8 , 0);
-    const zenRocks = await loadGLTF('./3D models/stylized_zen_stones/scene.gltf');
-    zenRocks.scene.scale.set( 0.7 , 0.5, 0.7);
-    zenRocks.scene.position.set( 0.2, -2.5, 1);
-    console.log(zenRocks)
-    zenRocks.scene.traverse((child) =>{
-      if (child.isMesh) {
-        child.material = blackMaterial;
-      }
-    });
-    zenRocks.scene.renderOrder = -1;
+    const goldenbirds = await loadGLTF('./3D models/five birds.glb');
+    goldenbirds.scene.scale.set(0.15 , 0.15 , 0.15);
+    // goldenbirds.scene.position.set(0, -3 , -0.2);
+    // goldenbirds.scene.rotation.set(0, -1.8 , 0);
+    // const zenRocks = await loadGLTF('./3D models/stylized_zen_stones/scene.gltf');
+    // zenRocks.scene.scale.set( 0.7 , 0.5, 0.7);
+    // zenRocks.scene.position.set( 0.2, -2.5, 1);
+    // console.log(zenRocks)
+    // zenRocks.scene.traverse((child) =>{
+    //   if (child.isMesh) {
+    //     child.material = blackMaterial;
+    //   }
+    // });
+    // zenRocks.scene.renderOrder = -1;
 
 
-    const waterfallAnimationMixer = new THREE.AnimationMixer(waterfall.scene);
-    waterfallAnimationMixer.clipAction(waterfall.animations[0]).play();
+    const goldenBirdsAnimationMixer = new THREE.AnimationMixer(goldenbirds.scene);
+    for (let i = 0; i < 2; i++) {
+      goldenBirdsAnimationMixer.clipAction(goldenbirds.animations[i]).startAt(-2).play();}
+    for (let i = 2; i < 5; i++) {
+      goldenBirdsAnimationMixer.clipAction(goldenbirds.animations[i]).play();
+    } 
+    
+    
 
     const goldenSpringAnchor = mindarThree.addAnchor(3);
-    goldenSpringAnchor.group.add(waterfall.scene);
-    goldenSpringAnchor.group.add(zenRocks.scene);
+    goldenSpringAnchor.group.add(goldenbirds.scene);
+    //goldenSpringAnchor.group.add(zenRocks.scene);
     goldenSpringAnchor.group.add(sunlight);
+    goldenSpringAnchor.onTargetFound = () =>{
+      console.log('gold found');
+    };
+    goldenSpringAnchor.onTargetLost = () =>{
+      console.log('gold lost');
+    };
 
     // Index 04 Rainy Mountains 天山新雨
 
@@ -109,15 +120,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clock = new THREE.Clock();
   
-    console.log(zenRocks.scene.children[0].rotation._y);
+    //console.log(zenRocks.scene.children[0].rotation._y);
     // App init
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
       const delta = clock.getDelta();
       cloudAnimationMixer.update(delta*2);
-      waterfallAnimationMixer.update(delta*0.3);
-      zenRocks.scene.children[0].rotation.set(zenRocks.scene.children[0].rotation._x, zenRocks.scene.children[0].rotation._y, zenRocks.scene.children[0].rotation._z + delta*0.1) ;
+      goldenBirdsAnimationMixer.update(delta*1);
+      //zenRocks.scene.children[0].rotation.set(zenRocks.scene.children[0].rotation._x, zenRocks.scene.children[0].rotation._y, zenRocks.scene.children[0].rotation._z + delta*0.1) ;
       renderer.render(scene, camera);
     });
   }
