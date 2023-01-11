@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //  const mistVid = await loadVideo('./videoEdits/Mist Ink.webm');
   //  const mistTexture = new THREE.VideoTexture(mistVid);
-    mistTexture.format = THREE.RGBAFormat;
+  //  mistTexture.format = THREE.RGBAFormat;
 
   //  const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
   //  const bgTexture = new THREE.VideoTexture(bgVid);
