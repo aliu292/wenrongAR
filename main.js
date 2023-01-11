@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
   //  const mistTexture = new THREE.VideoTexture(mistVid);
   //  mistTexture.format = THREE.RGBAFormat;
 
-  //  const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
-  //  const bgTexture = new THREE.VideoTexture(bgVid);
+    // const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
+    // const bgTexture = new THREE.VideoTexture(bgVid);
     // bgTexture.format = THREE.RGBAFormat;
 
     // const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
@@ -34,23 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // mistGeo.scale.set(0.02 ,0.02 , 0.02);
 
     
-    const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
-    const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
+    // const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
+    // const bgPlane = new THREE.Mesh(planeGeo, bgMaterial);
 
-    const chiWildAnchor = mindarThree.addAnchor(0);
-    chiWildAnchor.group.add(mistGeo)
-    chiWildAnchor.group.add(bgPlane);
+    // const chiWildAnchor = mindarThree.addAnchor(0);
+    // chiWildAnchor.group.add(mistGeo)
+    // chiWildAnchor.group.add(bgPlane);
     
-    chiWildAnchor.onTargetFound = () => {
-    //  mistVid.play();
-    //  bgVid.play();
-      console.log('Found');
-    }
-    chiWildAnchor.onTargetLost = () => {
-    //  mistVid.pause();
-    //  bgVid.pause();
-      console.log('Lost');
-    };
+    // chiWildAnchor.onTargetFound = () => {
+    // //  mistVid.play();
+    // //  bgVid.play();
+    //   console.log('Found');
+    // }
+    // chiWildAnchor.onTargetLost = () => {
+    // //  mistVid.pause();
+    // //  bgVid.pause();
+    //   console.log('Lost');
+    // };
 
     //---
     // Index 01 Cold Forest 寒林飄瑞雪
