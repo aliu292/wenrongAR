@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //  const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
   //  const bgTexture = new THREE.VideoTexture(bgVid);
-    bgTexture.format = THREE.RGBAFormat;
+    // bgTexture.format = THREE.RGBAFormat;
 
-    const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
-    const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
+    // const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
+    // const mistMaterial = new THREE.MeshBasicMaterial({map: mistTexture, transparent: true});
   
-    const mistGeo = await loadOBJ('./3D models/orgMesh.obj');
-    mistGeo.children[0].material = mistMaterial;
-    mistGeo.scale.set(0.02 ,0.02 , 0.02);
+    // const mistGeo = await loadOBJ('./3D models/orgMesh.obj');
+    // mistGeo.children[0].material = mistMaterial;
+    // mistGeo.scale.set(0.02 ,0.02 , 0.02);
 
     
     const bgMaterial = new THREE.MeshBasicMaterial({map: bgTexture, transparent: true});
