@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Index 00 Chi Wild 氣韻山林
 
-    const mistVid = await loadVideo('./videoEdits/Mist Ink.webm');
-    const mistTexture = new THREE.VideoTexture(mistVid);
+  //  const mistVid = await loadVideo('./videoEdits/Mist Ink.webm');
+  //  const mistTexture = new THREE.VideoTexture(mistVid);
     mistTexture.format = THREE.RGBAFormat;
 
-    const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
-    const bgTexture = new THREE.VideoTexture(bgVid);
+  //  const bgVid = await loadVideo('./videoEdits/BG Rise Alpha_1.webm');
+  //  const bgTexture = new THREE.VideoTexture(bgVid);
     bgTexture.format = THREE.RGBAFormat;
 
     const planeGeo = new THREE.PlaneGeometry( 1, 748/600 );
@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     chiWildAnchor.group.add(bgPlane);
     
     chiWildAnchor.onTargetFound = () => {
-      mistVid.play();
-      bgVid.play();
+    //  mistVid.play();
+    //  bgVid.play();
       console.log('Found');
     }
     chiWildAnchor.onTargetLost = () => {
-      mistVid.pause();
-      bgVid.pause();
+    //  mistVid.pause();
+    //  bgVid.pause();
       console.log('Lost');
     };
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Index 03 Golden Spring 黃金泉
     const blackMaterial = new THREE.MeshBasicMaterial({color: 0x000000, opacity: 0 , transparent: true });
-    const goldenbirds = await loadGLTF('./3D models/five birds.glb');
+    const goldenbirds = await loadGLTF('./3D models/goldFINAL.glb');
     goldenbirds.scene.scale.set(0.15 , 0.15 , 0.15);
     // goldenbirds.scene.position.set(0, -3 , -0.2);
     // goldenbirds.scene.rotation.set(0, -1.8 , 0);
